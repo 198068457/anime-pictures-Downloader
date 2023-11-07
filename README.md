@@ -6,7 +6,7 @@
 # 使用方法
 1.安装python（这一步应该不用专门教吧，网上教程一大把）<br>
 2.安装库：$ pip install -r requirements.txt<br>
-3.运行程序：运行anime-pictures.py即可 $ python anime-pictures.py<br>
+3.运行程序：运行anime-pictures.py即可 $ python anime-pictures.py 或者也可以运行start.cmd<br>
 4.
 
 # 额外说明

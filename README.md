@@ -1,6 +1,6 @@
 # anime-pictures-Downloader
 一个针对网站anime-pictures.net的图片下载器<br>
-![image](https://r2.img.cdn.loliloli.net/19d48d1c0382158a62dfb072681f2190/2023/11/07/La9Eb.png)
+![image](https://r2.img.cdn.loliloli.net/19d48d1c0382158a62dfb072681f2190/2023/11/07/La5nI.png)
 
 # 使用方法
 1.安装python（这一步应该不用专门教吧，网上教程一大把）<br>

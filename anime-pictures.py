@@ -85,7 +85,7 @@ class CrawlGui:
         self.button3.pack()
         self.button3.place(x=300,y=180)
         
-        self.e3.insert('end',r'D:\桌面\PixivCralwer\anime-pictures')
+        #self.e3.insert('end',r'D:\桌面\PixivCralwer\anime-pictures')
     
     def thread_it(self,func,*args):
         self.myThread=threading.Thread(target=func,args=args)

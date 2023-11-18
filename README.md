@@ -6,7 +6,9 @@
 1.安装python（这一步应该不用专门教吧，网上教程一大把）<br>
 2.安装库：$ pip install -r requirements.txt<br>
 3.运行程序：运行anime-pictures.py即可 $ python anime-pictures.py 或者也可以运行start.cmd<br>
-4.开始愉快地下载图片😘😘😘特别说明：这下载器不翻墙似乎也能用，但是下载速度感人，有条件的还是翻一下吧o(*￣▽￣*)o
+4.开始愉快地下载图片😘😘😘特别说明：这下载器不翻墙似乎也能用，但是下载速度感人，有条件的还是翻一下吧o(*￣▽￣*)o<br>
+<br>
+或者也可以直接下载Release
 
 # 功能说明
 1.关于两个“下载”按钮：<br>

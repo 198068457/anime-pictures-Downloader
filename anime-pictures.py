@@ -145,7 +145,7 @@ class CrawlGui:
             headers={'User-Agent':'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:88.0) Gecko/20100101 Google/88.0'}
             content=requests.get(startUrl,params=params,headers=headers).text
             soup=bs4.BeautifulSoup(content,'html.parser')
-            urls=soup.find_all('span',class_='img_block2 img_block_big')
+            urls=soup.find_all('span',class_='img-block svelte-1445hak img-block-big')
             params['page']+=1
             for each in urls:
                 url='https://anime-pictures.net'+each.a['href']

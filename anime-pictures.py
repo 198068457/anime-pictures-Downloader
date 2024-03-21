@@ -86,6 +86,12 @@ class CrawlGui:
         self.button3.place(x=300,y=180)
         
         #self.e3.insert('end',r'D:\桌面\PixivCralwer\anime-pictures')
+        
+        self.cookies={
+            'cookies':'_ga=GA1.1.716975144.1699452814; sitelang=en; cf_clearance=LkwdvRcgDMEVpYd1AQnv5UoifR5FRjKqHAMNpE25_Bo-1711012191-1.0.1.1-dE3pqMFZD_MCw4EJK1njaAJ373tf9Xh8_tFN5UvHLO1oXGkqK0oN.8ktw8nRUBbYBJl71H8vHqMHEsmPoaqn4w; priors=727435|826866|827625|826866; _ga_CGRN7Q26LC=GS1.1.1711010767.8.1.1711012274.0.0.0; kira=3'
+        }
+        self.headers={'User-Agent':'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:88.0) Gecko/20100101 Google/88.0'}
+
     
     def thread_it(self,func,*args):
         self.myThread=threading.Thread(target=func,args=args)
@@ -122,9 +128,8 @@ class CrawlGui:
         params={'search_tag':search_tag,
         'lang':'en',
         'order_by':'date'}
-        headers={'User-Agent':'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:88.0) Gecko/20100101 Google/88.0'}
         startUrl=f'https://anime-pictures.net/posts'
-        content=requests.get(startUrl,headers=headers,params=params).text
+        content=requests.get(startUrl,headers=self.headers,params=params).text
         page_count=re.findall('in request (.*?) pictures',content)[0]
         page_count=int(page_count)
         self.t1.insert('end',f'共搜索到{page_count}张图片\n')
@@ -143,21 +148,21 @@ class CrawlGui:
             self.t1.insert('end','-----------------------------------------------------------\n')
             self.t1.insert('end','准备爬取......\n')
             headers={'User-Agent':'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:88.0) Gecko/20100101 Google/88.0'}
-            content=requests.get(startUrl,params=params,headers=headers).text
+            content=requests.get(startUrl,params=params,headers=self.headers).text
             soup=bs4.BeautifulSoup(content,'html.parser')
             urls=soup.find_all('span',class_='img-block svelte-1445hak img-block-big')
             params['page']+=1
             for each in urls:
                 url='https://anime-pictures.net'+each.a['href']
                 #print(url)
-                html_data=requests.get(url,headers=headers,verify=False).text
+                html_data=requests.get(url,headers=self.headers,verify=False).text
                 img_url=re.findall('data-sveltekit-reload download href="(.*?)" title="Download picture"',html_data)[0]
                 if img_url:
                     img=requests.get(img_url)
                     img_name=img_url.split('/')[-1]
                     img_name=correct_title(img_name)
                     try:
-                        img=requests.get(img_url,timeout=10)
+                        img=requests.get(img_url,cookies=self.cookies,timeout=10)
                         with open(self.e3.get()+'\\'+img_name,'wb') as f:
                             f.write(img.content)
                             self.t1.insert('end','已下载：'+img_name+'\n')

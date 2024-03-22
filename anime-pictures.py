@@ -147,7 +147,6 @@ class CrawlGui:
         for i in range(startPage,endPage):
             self.t1.insert('end','-----------------------------------------------------------\n')
             self.t1.insert('end','准备爬取......\n')
-            headers={'User-Agent':'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:88.0) Gecko/20100101 Google/88.0'}
             content=requests.get(startUrl,params=params,headers=self.headers).text
             soup=bs4.BeautifulSoup(content,'html.parser')
             urls=soup.find_all('span',class_='img-block svelte-1445hak img-block-big')
